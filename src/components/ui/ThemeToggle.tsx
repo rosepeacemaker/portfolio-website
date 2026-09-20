@@ -1,9 +1,7 @@
-"use client"
-import { useEffect,useState } from "react";
-
+"use client";
+import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
@@ -15,26 +13,20 @@ export default function ThemeToggle() {
     }
   }, []);
 
-
-
-
-const toggleTheme = () => {
-
-
+  const toggleTheme = () => {
     const isDark = document.documentElement.classList.toggle("dark");
 
     setDark(isDark);
     localStorage.setItem("theme", isDark ? "dark" : "light");
+  };
 
-};
-
-return (
+  return (
     <button
-    onClick={toggleTheme}
-    aria-label="Toggle theme"
-    className="rounded-full border border-foreground/20 px-4 py-2"
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      className="rounded-full border border-foreground/20 px-4 py-2"
     >
-        {dark ? "☀️" : "🌙"}
+      {dark ? "☀️" : "🌙"}
     </button>
-)
+  );
 }

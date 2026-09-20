@@ -1,9 +1,14 @@
 import Image from "next/image";
+import ThemeToggle from "../ui/ThemeToggle";
+
+
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-background text-foreground">
-
+<div className="absolute right-6 top-6 z-50 md:right-12 md:top-8">
+  <ThemeToggle />
+</div>
   {/* Big text behind the image */}
   <div className="absolute inset-0 z-0 flex items-center justify-center translate-x-[12%] translate-y-[12%]">
     <h1  className="font-[var(--font-cormorant)] text-[18vw] font-medium leading-none tracking-tight blur-[1px] opacity-30">
@@ -65,8 +70,10 @@ className="image-reveal h-[70vh] w-auto object-contain opacity-85 md:h-[80vh]"
 </div>
     </div>
   </div>
-<div className="absolute bottom-3 left-1/2 z-30 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-foreground/50">
-  Scroll
+<div className="absolute bottom-6 left-1/2 z-30 -translate-x-1/2">
+  <div className="scroll-indicator">
+    <span />
+  </div>
 </div>
 </section>
   );
