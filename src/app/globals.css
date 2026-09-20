@@ -26,3 +26,45 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+@keyframes revealImage {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.image-reveal {
+  animation: revealImage 2s ease-out forwards;
+}
+/* For text animation */
+@keyframes revealText {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.text-reveal {
+  animation: revealText 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+/* soft image fade */
+/* .image-soft-edge {
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 85% at center,
+    black 55%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 70% 85% at center,
+    black 55%,
+    transparent 100%
+  );
+} */

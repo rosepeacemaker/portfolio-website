@@ -5,26 +5,27 @@ export default function Hero() {
     <section className="relative min-h-screen overflow-hidden bg-background text-foreground">
 
   {/* Big text behind the image */}
-  <div className="absolute inset-0 z-0 flex items-center justify-center">
-    <h1 className="font-[var(--font-cormorant)] text-[18vw] font-semibold leading-none tracking-tight">
+  <div className="absolute inset-0 z-0 flex items-center justify-center translate-x-[12%] translate-y-[12%]">
+    <h1  className="font-[var(--font-cormorant)] text-[18vw] font-medium leading-none tracking-tight blur-[1px] opacity-30">
       Rozina Saleem
     </h1>
   </div>
 
   {/* Profile image */}
-  <div className="absolute inset-y-0 right-[2%] z-10 flex items-center">
+  <div  className="absolute inset-y-0 right-0 z-10 flex w-full items-center justify-center md:right-12 md:w-auto">
   <Image
   src="/images/profile/rose-profile.jpeg"
   alt="Rozina Saleem"
   width={600}
   height={800}
-className="h-[80vh] w-auto object-contain opacity-85"
+className="image-reveal h-[70vh] w-auto object-contain opacity-85 md:h-[80vh]"
+  priority
 />
   </div>
 
   {/* Left intro content */}
-  <div className="relative z-20 flex min-h-screen items-center px-6 md:px-12">
-    <div className="max-w-xl">
+  <div className="relative z-20 flex min-h-screen items-center px-10 md:px-12">
+    <div className="max-w-xl text-reveal">
 
     <p className="text-sm uppercase tracking-[0.3em] text-accent">
   Hello, I’m
@@ -64,7 +65,9 @@ className="h-[80vh] w-auto object-contain opacity-85"
 </div>
     </div>
   </div>
-
+<div className="absolute bottom-3 left-1/2 z-30 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-foreground/50">
+  Scroll
+</div>
 </section>
   );
 }
