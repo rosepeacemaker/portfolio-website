@@ -1,13 +1,14 @@
 import Image from "next/image";
 import ThemeToggle from "../ui/ThemeToggle";
+import FlipCard from "../ui/FlipCard";
 
 
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-background text-foreground">
-<div className="absolute right-6 top-6 z-50 md:right-12 md:top-8">
-  <ThemeToggle />
+<div className="absolute inset-0 z-10 flex items-center justify-center">
+  <FlipCard />
 </div>
   {/* Big text behind the image */}
   <div className="absolute inset-0 z-0 flex items-center justify-center translate-x-[12%] translate-y-[12%]">
@@ -18,14 +19,7 @@ export default function Hero() {
 
   {/* Profile image */}
   <div  className="absolute inset-y-0 right-0 z-10 flex w-full items-center justify-center md:right-12 md:w-auto">
-  <Image
-  src="/images/profile/rose-profile.jpeg"
-  alt="Rozina Saleem"
-  width={600}
-  height={800}
-className="image-reveal h-[70vh] w-auto object-contain opacity-85 md:h-[80vh]"
-  priority
-/>
+  <FlipCard />
   </div>
 
   {/* Left intro content */}
