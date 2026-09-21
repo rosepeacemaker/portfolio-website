@@ -1,9 +1,42 @@
 "use client";
+import flipCard from "../"
 
 export default function FlipCard() {
   return (
-    <div className="flex h-[420px] w-[300px] items-center justify-center rounded-3xl bg-accent text-4xl text-white">
-      FLIP CARD
+    <div>
+      {/* React Bits code here */}
+     
+
+<FlipCard
+  front={<img src="/landscape.jpg" alt="Wooded landscape" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
+  back={
+    <div style={{ padding: 24 }}>
+      <h3>Wooded Landscape</h3>
+      <p>17th century · Rijksmuseum</p>
+    </div>
+  }
+  axis="y"
+  flipOnClick
+  draggable
+  dragDistance={0}
+  tilt
+  tiltMax={12}
+  glare
+  glareOpacity={0.22}
+  hoverScale={1.03}
+  perspective={1100}
+  stiffness={170}
+  damping={20}
+  width={300}
+  height={400}
+  radius={22}
+  background="#27272a"
+  color="#f5f5f5"
+  shadow
+  shadowColor="#000000"
+  shadowOpacity={0.45}
+  onFlipChange={flipped => console.log(flipped)}
+/>
     </div>
   );
 }
