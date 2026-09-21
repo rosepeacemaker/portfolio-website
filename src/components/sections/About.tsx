@@ -1,3 +1,5 @@
+
+
 export default function About() {
   return (
     <section
@@ -34,7 +36,6 @@ export default function About() {
               <span className="text-white/50">creativity.</span>
             </h2>
           </div>
-
           <span className="hidden text-xs uppercase tracking-[0.25em] text-white/40 md:block">
             2026
           </span>

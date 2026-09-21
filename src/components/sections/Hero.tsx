@@ -1,6 +1,7 @@
+'use client'
+
 import Image from "next/image";
-import ThemeToggle from "../ui/ThemeToggle";
-import FlipCard from "../ui/FlipCard";
+// import FlipCard from "../ui/FlipCard"
 
 
 
@@ -8,19 +9,56 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-background text-foreground">
 <div className="absolute inset-0 z-10 flex items-center justify-center">
-  <FlipCard />
+
+
+{/* <FlipCard
+  front={<Image src="/images/rose-profile.jpeg"
+     alt="Rozina Saleem"
+     width={400}
+     height={600}
+      style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
+  back={
+    <div style={{ padding: 24 }}>
+      <h3>Wooded Landscape</h3>
+      <p>17th century · Rijksmuseum</p>
+    </div>
+  }
+  axis="y"
+  flipOnClick
+  draggable
+  dragDistance={0}
+  tilt
+  tiltMax={12}
+  glare
+  glareOpacity={0.22}
+  hoverScale={1.03}
+  perspective={1100}
+  stiffness={170}
+  damping={20}
+  width={300}
+  height={400}
+  radius={22}
+  background="#27272a"
+  color="#f5f5f5"
+  shadow
+  shadowColor="#000000"
+  shadowOpacity={0.45}
+  onFlipChange={flipped => console.log(flipped)}
+/> */}
 </div>
   {/* Big text behind the image */}
+  
   <div className="absolute inset-0 z-0 flex items-center justify-center translate-x-[12%] translate-y-[12%]">
     <h1  className="font-[var(--font-cormorant)] text-[18vw] font-medium leading-none tracking-tight blur-[1px] opacity-30">
       Rozina Saleem
     </h1>
   </div>
+  
 
   {/* Profile image */}
-  <div  className="absolute inset-y-0 right-0 z-10 flex w-full items-center justify-center md:right-12 md:w-auto">
+  {/* <div  className="absolute inset-y-0 right-0 z-10 flex w-full items-center justify-center md:right-12 md:w-auto">
   <FlipCard />
-  </div>
+  </div> */}
 
   {/* Left intro content */}
   <div className="relative z-20 flex min-h-screen items-center px-10 md:px-12">
@@ -63,6 +101,7 @@ export default function Hero() {
 
 </div>
     </div>
+    
   </div>
 <div className="absolute bottom-2 left-1/2 z-30 -translate-x-1/2">
  <span className="text-xs uppercase tracking-[0.25em] text-accent">
