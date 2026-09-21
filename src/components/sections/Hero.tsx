@@ -70,10 +70,10 @@ className="image-reveal h-[70vh] w-auto object-contain opacity-85 md:h-[80vh]"
 </div>
     </div>
   </div>
-<div className="absolute bottom-6 left-1/2 z-30 -translate-x-1/2">
-  <div className="scroll-indicator">
-    <span />
-  </div>
+<div className="absolute bottom-2 left-1/2 z-30 -translate-x-1/2">
+ <span className="text-xs uppercase tracking-[0.25em] text-accent">
+            Scroll ↓
+          </span>
 </div>
 </section>
   );
