@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-// import FlipCard from "../ui/FlipCard"
+import FlipCard from "../ui/FlipCard"
 
 
 
@@ -10,11 +10,10 @@ export default function Hero() {
     <section className="relative min-h-screen overflow-hidden bg-background text-foreground">
 <div className="absolute inset-0 z-10 flex items-center justify-center">
 
-
-{/* <FlipCard
-  front={<Image src="/images/rose-profile.jpeg"
+<FlipCard
+  front={<Image src="/images/profile/rose-profile.jpeg"
      alt="Rozina Saleem"
-     width={400}
+     width={300}
      height={600}
       style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
   back={
@@ -44,7 +43,7 @@ export default function Hero() {
   shadowColor="#000000"
   shadowOpacity={0.45}
   onFlipChange={flipped => console.log(flipped)}
-/> */}
+/>
 </div>
   {/* Big text behind the image */}
   
@@ -55,8 +54,8 @@ export default function Hero() {
   </div>
   
 
-  {/* Profile image */}
-  {/* <div  className="absolute inset-y-0 right-0 z-10 flex w-full items-center justify-center md:right-12 md:w-auto">
+  {/* Profile image  */}
+   {/* <div  className="absolute inset-y-0 right-0 z-10 flex w-full items-center justify-center md:right-12 md:w-auto">
   <FlipCard />
   </div> */}
 

@@ -109,7 +109,7 @@ const FlipCard: React.FC<FlipCardProps> = ({
   const [dragging, setDragging] = useState(false);
   const shown = controlled ? flipped : inner;
   const shownRef = useRef(shown);
-  
+  shownRef.current = shown;
   const rootRef = useRef<HTMLDivElement>(null);
   const grip = useRef<Grip | null>(null);
   const spin = useRef<AnimationPlaybackControls | null>(null);
