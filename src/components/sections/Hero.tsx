@@ -1,6 +1,4 @@
 'use client'
-
-import Image from "next/image";
 import FlipCard from "../ui/FlipCard"
 
 
@@ -10,40 +8,10 @@ export default function Hero() {
     <section className="relative min-h-screen overflow-hidden bg-background text-foreground">
 <div className="absolute inset-0 z-10 flex items-center justify-center">
 
-<FlipCard
-  front={<Image src="/images/profile/rose-profile.jpeg"
-     alt="Rozina Saleem"
-     width={300}
-     height={600}
-      style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
-  back={
-    <div style={{ padding: 24 }}>
-      <h3>Wooded Landscape</h3>
-      <p>17th century · Rijksmuseum</p>
-    </div>
-  }
-  axis="y"
-  flipOnClick
-  draggable
-  dragDistance={0}
-  tilt
-  tiltMax={12}
-  glare
-  glareOpacity={0.22}
-  hoverScale={1.03}
-  perspective={1100}
-  stiffness={170}
-  damping={20}
-  width={300}
-  height={400}
-  radius={22}
-  background="#27272a"
-  color="#f5f5f5"
-  shadow
-  shadowColor="#000000"
-  shadowOpacity={0.45}
-  onFlipChange={flipped => console.log(flipped)}
-/>
+<div className="relative z-[9999] flex min-h-screen items-center justify-center">
+  <FlipCard />
+</div>
+
 </div>
   {/* Big text behind the image */}
   
