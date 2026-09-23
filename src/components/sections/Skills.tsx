@@ -4,7 +4,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="h-screen overflow-hidden bg-[#f5f3ee] px-6 py-12 text-black"
+      className="min-h-screen bg-[#f5f3ee] px-6 py-12 text-black"
     >
       <div className="mx-auto max-w-6xl">
         <p className="mb-3 text-sm uppercase tracking-[0.3em] text-black/50">

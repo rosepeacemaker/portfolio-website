@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative h-screen overflow-hidden bg-[#111111] px-6 py-12 text-[#f5f3ed] md:px-12"
+      className="relative min-h-screen bg-[#111111] px-6 py-12 text-[#f5f3ed] md:px-12"
     >
       {/* Grid background */}
       <div
@@ -21,7 +21,7 @@ export default function About() {
       {/* Glow */}
       <div className="absolute right-[-10%] top-[15%] h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
 
-     <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-between">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col">
 
         {/* Header */}
         <div className="mb-8 flex items-end justify-between border-b border-white/15 pb-6">

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function FlipCard() {
   const [flipped, setFlipped] = useState(false);
@@ -9,28 +10,33 @@ export default function FlipCard() {
   return (
     <div
       className="h-[400px] w-[300px] cursor-pointer"
-      style={{ perspective: "1100px" }}
-    onClick={() => {
-  alert("CLICK WORKING");
-  setFlipped(!flipped);
-}}
+      style={{ perspective: 1100 }}
+      onClick={() => setFlipped((prev) => !prev)}
     >
-      <div
-        className="relative h-full w-full transition-transform duration-700"
+      <motion.div
+        className="relative h-full w-full"
+        animate={{ rotateY: flipped ? 180 : 0 }}
+        transition={{
+          duration: 0.9,
+          ease: "easeInOut",
+        }}
         style={{
           transformStyle: "preserve-3d",
-          transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
         }}
       >
         {/* FRONT */}
         <div
           className="absolute inset-0 overflow-hidden rounded-[22px] border border-white/10"
-          style={{ backfaceVisibility: "hidden" }}
+          style={{
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
         >
           <Image
             src="/images/profile/rose-profile.jpeg"
             alt="Rozina Saleem"
             fill
+            priority
             className="object-cover"
           />
         </div>
@@ -40,6 +46,7 @@ export default function FlipCard() {
           className="absolute inset-0 flex flex-col items-center justify-center rounded-[22px] bg-[#111111] p-8 text-center text-white"
           style={{
             backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
           }}
         >
@@ -63,7 +70,7 @@ export default function FlipCard() {
             and AI-powered experiences.
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
