@@ -50,7 +50,7 @@ export default function FlipCard() {
             transform: "rotateY(180deg)",
           }}
         >
-          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-[#5B8CFF]">
+          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-accent">
             Hello, I'm
           </p>
 
@@ -62,7 +62,7 @@ export default function FlipCard() {
             Full Stack Developer
           </p>
 
-          <div className="mt-8 h-px w-16 bg-[#5B8CFF]" />
+          <div className="mt-8 h-px w-16 bg-accent" />
 
           <p className="mt-6 text-sm leading-6 text-white/50">
             Building modern web applications

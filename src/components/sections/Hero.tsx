@@ -55,7 +55,7 @@ export default function Hero() {
 
             <a
               href="#projects"
-              className="pointer-events-auto rounded-full bg-[#5B8CFF] px-6 py-3 text-sm font-medium text-background transition hover:opacity-80"
+              className="pointer-events-auto rounded-full bg-accent px-6 py-3 text-sm font-medium text-background transition hover:opacity-80"
             >
               View Projects
             </a>
