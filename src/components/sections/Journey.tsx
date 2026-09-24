@@ -4,7 +4,6 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { Briefcase, Calendar, ArrowUpRight } from "lucide-react"
 import { timelineData } from "@/src/data/JourenyData"
-import { section } from "motion/react-client"
 
 export default function Journey() {
   const [activeTab, setActiveTab] = useState(timelineData[0]?.id ?? "")
@@ -70,7 +69,7 @@ export default function Journey() {
                 return (
                   <button
                     key={item.id}
-                    ref={(el) => (tabRefs.current[item.id] = el)}
+                    ref={(el) => { tabRefs.current[item.id] = el }}
                     role="tab"
                     aria-selected={isActive}
                     onClick={() => selectTab(item.id)}
@@ -133,9 +132,8 @@ export default function Journey() {
                       </div>
                     </div>
 
-                    {currentItem?.link && (
-
-                      <a href={currentItem.link}
+                    {"link" in (currentItem || {}) && (currentItem as Record<string, any>).link && (
+                      <a href={(currentItem as Record<string, any>).link}
                         target="_blank"
                         rel="noreferrer"
                         className="flex items-center gap-1 rounded-full border border-border/50 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
