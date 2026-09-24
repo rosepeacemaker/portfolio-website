@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Montserrat, Cormorant_Garamond, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Navbar from "../components/layout/Navbar";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -29,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn(montserrat.variable, cormorant.variable, "font-sans", geist.variable)}>
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}</body>
     </html>
   );
 }

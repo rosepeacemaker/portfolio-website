@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { MoonIcon, SunDim, SunMoon } from "lucide-react";
 
 export default function ThemeToggle() {
   const [dark, setDark] = useState(false);
@@ -24,9 +25,11 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      className="rounded-full border border-foreground/20 px-4 py-2"
+      className="rounded-full px-4 py-2"
     >
-      {dark ? "☀️" : "🌙"}
+      {dark ? <MoonIcon /> : <SunDim />}
     </button>
   );
 }
+
+

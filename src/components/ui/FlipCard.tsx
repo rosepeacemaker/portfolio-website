@@ -9,7 +9,7 @@ export default function FlipCard() {
 
   return (
     <div
-      className="h-[400px] w-[300px] cursor-pointer"
+      className="h-[400px] w-full max-w-[300px] cursor-pointer sm:h-[400px] sm:w-[300px]"
       style={{ perspective: 1100 }}
       onClick={() => setFlipped((prev) => !prev)}
     >
@@ -42,29 +42,30 @@ export default function FlipCard() {
         </div>
 
         {/* BACK */}
+
         <div
-          className="absolute inset-0 flex flex-col items-center justify-center rounded-[22px] bg-[#111111] p-8 text-center text-white"
+          className="absolute inset-0 flex flex-col items-center justify-center rounded-[22px] bg-[#111111] px-4 py-5 text-center text-white sm:p-8"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
           }}
         >
-          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-accent">
+          <p className="mb-2 text-[10px] uppercase tracking-[0.25em] text-accent sm:mb-3 sm:text-sm sm:tracking-[0.3em]">
             Hello, I'm
           </p>
 
-          <h2 className="text-4xl font-semibold">
+          <h2 className="text-2xl font-semibold sm:text-4xl">
             Rozina Saleem
           </h2>
 
-          <p className="mt-4 text-white/60">
+          <p className="mt-2 text-xs text-white/60 sm:mt-4 sm:text-base">
             Full Stack Developer
           </p>
 
-          <div className="mt-8 h-px w-16 bg-accent" />
+          <div className="mt-4 h-px w-12 bg-accent sm:mt-8 sm:w-16" />
 
-          <p className="mt-6 text-sm leading-6 text-white/50">
+          <p className="mt-4 text-[11px] leading-5 text-white/50 sm:mt-6 sm:text-sm sm:leading-6">
             Building modern web applications
             <br />
             and AI-powered experiences.

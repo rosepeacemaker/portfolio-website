@@ -56,10 +56,15 @@ const skillsData: SkillItem[] = [
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="relative min-h-screen bg-[#f5f3ee] px-6 py-20 text-black md:px-12"
-    >
+   <section
+  id="skills"
+  className="
+    relative min-h-screen overflow-hidden
+    bg-[#f5f3ee] px-6 py-20 text-black
+    md:px-12
+  "
+>
+
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-16">
