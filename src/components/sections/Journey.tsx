@@ -35,7 +35,49 @@ export default function Journey() {
   )
 
   return (
-    <section id="journey" className="min-h-screen px-6 py-24">
+    <section
+  id="journey"
+  className="
+    relative
+    min-h-screen
+    overflow-hidden
+    bg-[#151318]
+    px-6
+    py-24
+    text-[#F7F3F5]
+  "
+>
+  {/* Animated background */}
+<div className="pointer-events-none absolute inset-0 overflow-hidden">
+  <div className="journey-pattern absolute inset-0" />
+
+  {/* Soft pink glow */}
+  <div
+    className="
+      absolute
+      -left-40
+      top-[-150px]
+      h-[450px]
+      w-[450px]
+      rounded-full
+      bg-[#E8A6B8]/8
+      blur-[130px]
+    "
+  />
+
+  <div
+    className="
+      absolute
+      -right-40
+      bottom-[-150px]
+      h-[450px]
+      w-[450px]
+      rounded-full
+      bg-[#C78BA0]/8
+      blur-[130px]
+    "
+  />
+</div>
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-16 flex flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between">

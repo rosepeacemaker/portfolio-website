@@ -172,3 +172,116 @@
     @apply font-sans;
   }
 }
+/* From Uiverse.io by gharsh11032000 */ 
+.hero-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 30px;
+  border-radius: 999px;
+
+  border: 1.5px solid #f09ab5;
+  background: rgba(240, 154, 181, 0.08);
+
+  color: #f50af1;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+  overflow: hidden;
+
+  transition: all 0.35s ease;
+}
+
+/* soft moving shine */
+.hero-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(249, 180, 203, 0.45),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.hero-btn:hover::before {
+  left: 140%;
+}
+
+.hero-btn:hover {
+  color: #f288e0;
+
+  background: rgba(240, 154, 181, 0.22);
+  border-color: #f43cd3;
+
+  box-shadow:
+    0 0 12px rgba(240, 154, 181, 0.35),
+    0 0 28px rgba(240, 154, 181, 0.18);
+
+  transform: translateY(-2px);
+}
+
+.hero-btn:active {
+  transform: translateY(0);
+}
+/* For journey.tsx page */
+.journey-pattern {
+  background:
+    linear-gradient(
+      135deg,
+      #0000 18.75%,
+      rgba(232, 166, 184, 0.10) 0 31.25%,
+      #0000 0
+    ),
+    linear-gradient(
+      45deg,
+      #0000 18.75%,
+      rgba(232, 166, 184, 0.10) 0 31.25%,
+      #0000 0
+    ),
+    linear-gradient(
+      135deg,
+      #0000 18.75%,
+      rgba(232, 166, 184, 0.10) 0 31.25%,
+      #0000 0
+    ),
+    linear-gradient(
+      45deg,
+      #0000 18.75%,
+      rgba(232, 166, 184, 0.10) 0 31.25%,
+      #0000 0
+    );
+
+  background-size: 60px 60px;
+
+  background-position:
+    0 0,
+    0 0,
+    30px 30px,
+    30px 30px;
+
+  animation: journey-slide 4s linear infinite;
+}
+
+@keyframes journey-slide {
+  to {
+    background-position:
+      60px 0,
+      60px 0,
+      90px 30px,
+      90px 30px;
+  }
+}
+
+
