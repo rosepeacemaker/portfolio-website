@@ -5,7 +5,7 @@ import { projectsData } from "@/src/data/ProjectsData"
 
 export default function Projects() {
   return (
-    <section id="projects" className="min-h-screen px-6 py-24">
+    <section id="projects" className="relative min-h-screen overflow-hidden bg-background text-foreground px-6 py-24">
       <div className="mx-auto max-w-7xl">
 
         {/* Heading */}
@@ -14,7 +14,7 @@ export default function Projects() {
             My Work
           </p>
 
-          <h2 className="text-5xl font-semibold tracking-tight">
+          <h2 className="text-5xl font-semibold tracking-tight text-foreground">
             Projects
           </h2>
 
@@ -29,7 +29,7 @@ export default function Projects() {
           {projectsData.map((project) => (
             <div
               key={project.id}
-              className="group overflow-hidden rounded-3xl border border-border/50 bg-card/30"
+              className="group overflow-hidden rounded-3xl border border-border/70 bg-card/70 dark:bg-card/40 backdrop-blur-md shadow-sm transition-all duration-300 hover:border-accent/60 hover:-translate-y-1"
             >
 
               {/* Project Image */}
@@ -58,7 +58,7 @@ export default function Projects() {
                   {project.category}
                 </p>
 
-                <h3 className="text-2xl font-semibold">
+                <h3 className="text-2xl font-semibold text-foreground">
                   {project.title}
                 </h3>
 
@@ -71,7 +71,7 @@ export default function Projects() {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-border/40 bg-background/40 px-3 py-1 text-xs text-muted-foreground"
+                      className="rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-xs text-muted-foreground"
                     >
                       {tech}
                     </span>
@@ -83,6 +83,7 @@ export default function Projects() {
         </div>
 
       </div>
+
     </section>
   )
 }

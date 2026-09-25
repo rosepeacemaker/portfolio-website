@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Briefcase, Calendar, ArrowUpRight } from "lucide-react"
 import { timelineData } from "@/src/data/JourenyData"
 
+
 export default function Journey() {
   const [activeTab, setActiveTab] = useState(timelineData[0]?.id ?? "")
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({})
@@ -147,38 +148,34 @@ export default function Journey() {
                     role="tab"
                     aria-selected={isActive}
                     onClick={() => selectTab(item.id)}
-                    className={`group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-all duration-300 ${
-                      isActive
+                    className={`group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-all duration-300 ${isActive
                         ? "bg-primary/10 text-primary font-medium dark:bg-primary/15"
                         : "hover:bg-muted/40 text-muted-foreground"
-                    }`}
+                      }`}
                   >
                     {/* Timeline node centered on track line */}
                     <div className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center">
                       <span
-                        className={`rounded-full transition-all duration-300 ${
-                          isActive
+                        className={`rounded-full transition-all duration-300 ${isActive
                             ? "h-3 w-3 bg-primary ring-4 ring-primary/20 scale-100"
                             : "h-2 w-2 bg-muted-foreground/50 group-hover:bg-foreground/70"
-                        }`}
+                          }`}
                       />
                     </div>
 
                     <div className="flex flex-col gap-0.5 min-w-0">
                       <span
-                        className={`flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider ${
-                          isActive ? "text-primary" : "text-muted-foreground"
-                        }`}
+                        className={`flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider ${isActive ? "text-primary" : "text-muted-foreground"
+                          }`}
                       >
                         <Calendar className="h-3 w-3 shrink-0" />
                         {item.id}
                       </span>
                       <span
-                        className={`text-xs sm:text-sm font-medium leading-snug truncate transition-colors ${
-                          isActive
+                        className={`text-xs sm:text-sm font-medium leading-snug truncate transition-colors ${isActive
                             ? "text-foreground font-semibold"
                             : "text-muted-foreground group-hover:text-foreground"
-                        }`}
+                          }`}
                       >
                         {item.role}
                       </span>
@@ -251,6 +248,7 @@ export default function Journey() {
           </div>
         </div>
       </div>
+
     </section>
   )
 }

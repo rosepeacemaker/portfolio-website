@@ -1,6 +1,7 @@
-"use client";
-
+'use client'
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 
 interface SkillItem {
   category: string;
@@ -21,7 +22,7 @@ const skillsData: SkillItem[] = [
     title: "Web Development",
     skills: ["React.js", "Next.js", "Node.js", "Express", "MongoDB", "TypeScript"],
     image: "/images/web-dev.jpg",
-    accentColor: "text-[#EF4444]", // Vibrant Red matching web-dev title
+    accentColor: "text-[#EF4444]",
     borderColor: "hover:border-[#EF4444]/70",
     shadowGlow: "hover:shadow-[0_15px_35px_rgba(239,68,68,0.35)]",
     glowBg: "bg-[#EF4444]/30",
@@ -33,7 +34,7 @@ const skillsData: SkillItem[] = [
     title: "Generative AI",
     skills: ["GenAI", "RAG", "LangChain", "LangGraph", "LLM Integration"],
     image: "/images/ai-platform.jpg",
-    accentColor: "text-[#38BDF8]", // Neon Cyan Blue matching AI Platform artwork
+    accentColor: "text-[#38BDF8]",
     borderColor: "hover:border-[#38BDF8]/70",
     shadowGlow: "hover:shadow-[0_15px_35px_rgba(56,189,248,0.35)]",
     glowBg: "bg-[#38BDF8]/30",
@@ -45,7 +46,7 @@ const skillsData: SkillItem[] = [
     title: "Tools & Architecture",
     skills: ["Docker", "Kubernetes", "Redis", "AWS", "Socket.io", "REST APIs"],
     image: "/images/system-archi.jpg",
-    accentColor: "text-[#2DD4BF]", // Teal / Mint Turquoise matching database architecture
+    accentColor: "text-[#2DD4BF]",
     borderColor: "hover:border-[#2DD4BF]/70",
     shadowGlow: "hover:shadow-[0_15px_35px_rgba(45,212,191,0.35)]",
     glowBg: "bg-[#2DD4BF]/30",
@@ -56,39 +57,82 @@ const skillsData: SkillItem[] = [
 
 export default function Skills() {
   return (
-   <section
-  id="skills"
-  className="
-    relative min-h-screen overflow-hidden
-    bg-[#f5f3ee] px-6 py-20 text-black
-    md:px-12
-  "
->
+    <section
+      id="skills"
+      className="
+        relative
+        min-h-screen
+        lg:h-screen
+        lg:max-h-screen
+        flex
+        flex-col
+        justify-center
+        overflow-hidden
+        bg-background
+        text-foreground
+        px-4
+        sm:px-6
+        lg:px-12
+        py-10
+        lg:py-6
+        transition-colors
+        duration-300
+      "
+    >
+      {/* Subtle Ambient Background Glows */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          className="
+            absolute -left-40 top-[-100px]
+            h-[400px] w-[400px]
+            rounded-full
+            bg-pink-500/10 dark:bg-pink-500/15
+            blur-[120px]
+          "
+        />
+        <div
+          className="
+            absolute -right-40 bottom-[-100px]
+            h-[400px] w-[400px]
+            rounded-full
+            bg-cyan-500/10 dark:bg-cyan-500/15
+            blur-[130px]
+          "
+        />
+      </div>
 
-      <div className="mx-auto max-w-6xl">
+      <div className="relative z-10 mx-auto w-full max-w-6xl flex flex-col justify-center my-auto">
         {/* Header */}
-        <div className="mb-16">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
+        <div className="mb-6 lg:mb-8">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
             What I work with
           </p>
 
-          <h2 className="font-[var(--font-cormorant)] text-5xl font-semibold tracking-tight md:text-7xl">
+          <h2 className="font-[var(--font-cormorant)] text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground">
             Skills
           </h2>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid gap-8 md:grid-cols-3">
+        {/* Cards Grid with Staggered Framer Motion Animation */}
+        <div className="grid gap-6 md:grid-cols-3">
           {skillsData.map((skill, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.15,
+                ease: [0.21, 0.47, 0.32, 0.98],
+              }}
               data-cursor-img={skill.image}
               data-cursor-width="180px"
               data-cursor-height="180px"
               data-cursor-text={skill.category.toLowerCase()}
-              className={`group relative flex min-h-[380px] flex-col justify-end overflow-hidden rounded-2xl border border-black/10 shadow-lg transition-all duration-500 ease-out hover:-translate-y-2.5 ${skill.borderColor} ${skill.shadowGlow}`}
+              className={`group relative flex min-h-[320px] sm:min-h-[350px] lg:min-h-[370px] flex-col justify-end overflow-hidden rounded-2xl border border-border/80 dark:border-border/50 shadow-lg transition-all duration-500 ease-out hover:-translate-y-2 ${skill.borderColor} ${skill.shadowGlow}`}
             >
-              {/* Background Image scaling to card width & height */}
+              {/* Background Image */}
               <Image
                 src={skill.image}
                 alt={skill.title}
@@ -97,47 +141,49 @@ export default function Skills() {
                 className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
               />
 
-              {/* Gradient overlay for readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30 transition-opacity duration-500 group-hover:from-black/95 group-hover:via-black/65 group-hover:to-black/20" />
+              {/* Gradient overlay for text contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/25 transition-opacity duration-500 group-hover:from-black/95 group-hover:via-black/70 group-hover:to-black/20" />
 
-              {/* Image-Specific Ambient Accent Glow in top right corner on hover */}
-              <div className={`pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full ${skill.glowBg} blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100`} />
+              {/* Image-Specific Ambient Glow on Hover */}
+              <div
+                className={`pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full ${skill.glowBg} blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100`}
+              />
 
               {/* Content */}
-              <div className="relative z-10 p-7 text-white transition-transform duration-300 ease-out group-hover:-translate-y-1">
-                {/* Category tag matching image prominent color */}
-                <p className={`mb-2 text-xs font-bold uppercase tracking-[0.25em] ${skill.accentColor}`}>
+              <div className="relative z-10 p-6 text-white transition-transform duration-300 ease-out group-hover:-translate-y-1">
+                {/* Category tag */}
+                <p className={`mb-1.5 text-xs font-bold uppercase tracking-[0.25em] ${skill.accentColor}`}>
                   {skill.category}
                 </p>
 
-                <h3 className="mb-4 font-[var(--font-cormorant)] text-3xl font-medium leading-snug text-white">
+                <h3 className="mb-3 font-[var(--font-cormorant)] text-2xl sm:text-3xl font-medium leading-snug text-white">
                   {skill.title}
                 </h3>
 
                 {/* Tech Pills */}
-                <div className="flex flex-wrap gap-2 pt-1">
+                <div className="flex flex-wrap gap-1.5 pt-1">
                   {skill.skills.map((item, i) => (
                     <span
                       key={i}
-                      className={`rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md transition-colors duration-300 ${skill.pillHoverBorder} ${skill.pillHoverBg}`}
+                      className={`rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[11px] sm:text-xs font-medium text-white/90 backdrop-blur-md transition-colors duration-300 ${skill.pillHoverBorder} ${skill.pillHoverBg}`}
                     >
                       {item}
                     </span>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Footer info */}
-        <div className="mt-16 flex items-center justify-between border-t border-black/10 pt-8">
+        <div className="mt-8 lg:mt-10 flex items-center justify-between border-t border-border/60 pt-6">
           <div>
-            <p className="text-sm text-black/50">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               Full Stack + GenAI
             </p>
 
-            <p className="mt-1 text-xl font-medium">
+            <p className="mt-0.5 text-base sm:text-lg font-medium text-foreground">
               Sheryians Coding School
             </p>
           </div>
@@ -147,6 +193,7 @@ export default function Skills() {
           </span>
         </div>
       </div>
+
     </section>
   );
 }

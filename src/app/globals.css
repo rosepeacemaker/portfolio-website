@@ -42,7 +42,7 @@
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
- --accent: #FF7AF7;
+  --accent: #FF7AF7;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -117,10 +117,12 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 }
+
 @keyframes revealImage {
   from {
     clip-path: inset(0 0 100% 0);
   }
+
   to {
     clip-path: inset(0 0 0 0);
   }
@@ -129,6 +131,7 @@
 .image-reveal {
   animation: revealImage 2s ease-out forwards;
 }
+
 /* For text animation */
 @keyframes revealText {
   from {
@@ -142,37 +145,51 @@
   }
 }
 
+
 .text-reveal {
   animation: revealText 1s ease-out 0.5s forwards;
   opacity: 0;
 }
-/* soft image fade */
-/* .image-soft-edge {
-  -webkit-mask-image: radial-gradient(
-    ellipse 70% 85% at center,
-    black 55%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 70% 85% at center,
-    black 55%,
-    transparent 100%
-  );
-} */
- /* for button scroll  */
 
- @layer base {
+
+/* for button scroll  */
+
+@layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
+    scroll-behavior: smooth;
   }
 }
-/* From Uiverse.io by gharsh11032000 */ 
+
+/* Thicker Glowing Neon Pink Section End Border */
+.section-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg,
+      rgba(255, 122, 247, 0) 0%,
+      rgba(244, 60, 211, 0.8) 15%,
+      #FF7AF7 50%,
+      rgba(244, 60, 211, 0.8) 85%,
+      rgba(255, 122, 247, 0) 100%);
+  box-shadow:
+    0 0 10px rgba(255, 122, 247, 0.7),
+    0 0 20px rgba(244, 60, 211, 0.5),
+    0 0 30px rgba(244, 60, 211, 0.3);
+  z-index: 40;
+}
+
+/* From Uiverse.io by gharsh11032000 */
 .hero-btn {
   position: relative;
   display: inline-flex;
@@ -204,12 +221,10 @@
   width: 70%;
   height: 100%;
 
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(249, 180, 203, 0.45),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(249, 180, 203, 0.45),
+      transparent);
 
   transform: skewX(-20deg);
   transition: left 0.6s ease;
@@ -235,33 +250,26 @@
 .hero-btn:active {
   transform: translateY(0);
 }
+
 /* For journey.tsx page */
 .journey-pattern {
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #0000 18.75%,
       rgba(232, 166, 184, 0.10) 0 31.25%,
-      #0000 0
-    ),
-    linear-gradient(
-      45deg,
+      #0000 0),
+    linear-gradient(45deg,
       #0000 18.75%,
       rgba(232, 166, 184, 0.10) 0 31.25%,
-      #0000 0
-    ),
-    linear-gradient(
-      135deg,
+      #0000 0),
+    linear-gradient(135deg,
       #0000 18.75%,
       rgba(232, 166, 184, 0.10) 0 31.25%,
-      #0000 0
-    ),
-    linear-gradient(
-      45deg,
+      #0000 0),
+    linear-gradient(45deg,
       #0000 18.75%,
       rgba(232, 166, 184, 0.10) 0 31.25%,
-      #0000 0
-    );
+      #0000 0);
 
   background-size: 60px 60px;
 
@@ -284,4 +292,52 @@
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
 
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 55s linear infinite;
+}
+
+/* For hero animation */
+.hero-card-glow {
+  animation: hero-glow-breathe 6s ease-in-out infinite;
+}
+
+@keyframes hero-glow-breathe {
+
+  0%,
+  100% {
+    opacity: 0.45;
+    filter: blur(75px);
+  }
+
+  50% {
+    opacity: 0.85;
+    filter: blur(105px);
+  }
+}
+
+/* For big text */
+.hero-name-breathe {
+  animation: name-breathe 6s ease-in-out infinite;
+}
+
+@keyframes name-breathe {
+
+  0%,
+  100% {
+    opacity: 0.10;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}

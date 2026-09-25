@@ -44,7 +44,7 @@ export default function FlipCard() {
         {/* BACK */}
 
         <div
-          className="absolute inset-0 flex flex-col items-center justify-center rounded-[22px] bg-[#111111] px-4 py-5 text-center text-white sm:p-8"
+          className="absolute  inset-0 flex flex-col items-center justify-center rounded-[22px] bg-[#111111] px-4 py-5 text-center text-white sm:p-8"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",

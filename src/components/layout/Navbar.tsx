@@ -29,8 +29,8 @@ export default function Navbar() {
       className={`fixed left-0 top-0 z-50 w-full px-6 py-5 md:px-10
         transition-all duration-300
         ${scrolled
-          ? "bg-[#f5f3ee]/80 backdrop-blur-md"
-          : "bg-transparent"
+          ? "bg-background/80 text-foreground backdrop-blur-md border-b border-border/40"
+          : "bg-transparent text-foreground"
         }
       `}
     >
@@ -45,7 +45,7 @@ export default function Navbar() {
               Rozina
             </div>
 
-            <div className="mt-1 text-[9px] font-medium uppercase tracking-[0.18em] text-black/50">
+            <div className="mt-1 text-[9px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
               Full Stack Developer (MERN)
             </div>
           </Link>

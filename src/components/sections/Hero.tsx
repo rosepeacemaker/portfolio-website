@@ -1,14 +1,14 @@
-'use client'
 import FlipCard from "../ui/FlipCard"
-
-
+import SectionDividerTicker from "../ui/SectionDividerTicker"
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center md:justify-end md:pr-16 lg:pr-24 md:translate-x-[2%]">
 
-        <div className="absolute right-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#5B8CFF]/20 blur-[100px]" />
+        <div className="absolute right-[10%] top-1/2 -translate-y-1/2">
+          <div className="hero-card-glow h-[420px] w-[420px] rounded-full bg-[#E8A6B8]/40 blur-[100px]" />
+        </div>
 
         <div className="pointer-events-auto relative z-[9999]">
           <FlipCard />
@@ -18,11 +18,10 @@ export default function Hero() {
       {/* Big text behind the image */}
 
       <div className="absolute inset-0 z-0 flex items-center justify-center translate-x-[12%] translate-y-[12%]">
-        <h1 className="font-[var(--font-cormorant)] text-[18vw] font-medium leading-none tracking-tight blur-[1px] opacity-30">
-          Rozina Saleem
+        <h1 className="hero-name-breathe font-[var(--font-cormorant)] text-[13vw] font-medium leading-none tracking-tight blur-[2px]">
+          Full Stack Developer
         </h1>
       </div>
-
 
       {/* Profile image  */}
       {/* <div  className="absolute inset-y-0 right-0 z-10 flex w-full items-center justify-center md:right-12 md:w-auto">
@@ -72,11 +71,12 @@ export default function Hero() {
         </div>
 
       </div>
-      <div className="absolute bottom-2 left-1/2 z-30 -translate-x-1/2">
+      <div className="absolute bottom-10 left-1/2 z-30 -translate-x-1/2">
         <span className="text-xs uppercase tracking-[0.25em] text-accent">
           Scroll ↓
         </span>
       </div>
+      <SectionDividerTicker />
     </section>
   );
 }
