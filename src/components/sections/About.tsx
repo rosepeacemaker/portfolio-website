@@ -54,7 +54,7 @@ export default function About() {
       {/* Ambient Pink Glow */}
       <div className="pointer-events-none absolute right-[-5%] top-[15%] h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl flex flex-col justify-center my-auto">
+      <div className="relative z-20 mx-auto w-full max-w-6xl flex flex-col justify-center my-auto">
         {/* Header */}
         <div className="mb-6 lg:mb-8 flex items-end justify-between border-b border-border/60 pb-5">
           <div>

@@ -1,212 +1,290 @@
 'use client'
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 
-interface SkillItem {
-  category: string;
+interface SkillGroup {
+  id: string;
+  number: string;
+  label: string;
   title: string;
+  description: string;
   skills: string[];
-  image: string;
-  accentColor: string;
-  borderColor: string;
-  shadowGlow: string;
-  glowBg: string;
-  pillHoverBorder: string;
-  pillHoverBg: string;
 }
 
-const skillsData: SkillItem[] = [
+const skillGroups: SkillGroup[] = [
   {
-    category: "Full Stack",
-    title: "Web Development",
-    skills: ["React.js", "Next.js", "Node.js", "Express", "MongoDB", "TypeScript"],
-    image: "/images/web-dev.jpg",
-    accentColor: "text-[#EF4444]",
-    borderColor: "hover:border-[#EF4444]/70",
-    shadowGlow: "hover:shadow-[0_15px_35px_rgba(239,68,68,0.35)]",
-    glowBg: "bg-[#EF4444]/30",
-    pillHoverBorder: "group-hover:border-[#EF4444]/50",
-    pillHoverBg: "group-hover:bg-[#EF4444]/15",
+    id: "frontend",
+    number: "01",
+    label: "Frontend",
+    title: "Frontend Development",
+    description:
+      "Building responsive, interactive and modern user interfaces with a focus on performance and user experience.",
+    skills: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "GSAP",
+      "Three.js / R3F",
+      "Zustand",
+      "TanStack",
+      "ShadCN",
+    ],
   },
   {
-    category: "AI / LLM",
-    title: "Generative AI",
-    skills: ["GenAI", "RAG", "LangChain", "LangGraph", "LLM Integration"],
-    image: "/images/ai-platform.jpg",
-    accentColor: "text-[#38BDF8]",
-    borderColor: "hover:border-[#38BDF8]/70",
-    shadowGlow: "hover:shadow-[0_15px_35px_rgba(56,189,248,0.35)]",
-    glowBg: "bg-[#38BDF8]/30",
-    pillHoverBorder: "group-hover:border-[#38BDF8]/50",
-    pillHoverBg: "group-hover:bg-[#38BDF8]/15",
+    id: "backend",
+    number: "02",
+    label: "Backend",
+    title: "Backend Development",
+    description:
+      "Developing scalable APIs, authentication systems, real-time features and database-driven applications.",
+    skills: [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "REST APIs",
+      "Socket.io",
+      "Redis",
+      "JWT",
+      "Google Auth",
+      "Payment Gateway",
+      "ImageKit",
+    ],
   },
   {
-    category: "Systems",
-    title: "Tools & Architecture",
-    skills: ["Docker", "Kubernetes", "Redis", "AWS", "Socket.io", "REST APIs"],
-    image: "/images/system-archi.jpg",
-    accentColor: "text-[#2DD4BF]",
-    borderColor: "hover:border-[#2DD4BF]/70",
-    shadowGlow: "hover:shadow-[0_15px_35px_rgba(45,212,191,0.35)]",
-    glowBg: "bg-[#2DD4BF]/30",
-    pillHoverBorder: "group-hover:border-[#2DD4BF]/50",
-    pillHoverBg: "group-hover:bg-[#2DD4BF]/15",
+    id: "ai",
+    number: "03",
+    label: "AI + System Design",
+    title: "AI & System Design",
+    description:
+      "Exploring LLM-powered applications, RAG pipelines, AI agents and scalable system architecture.",
+    skills: [
+      "GenAI",
+      "LLM Integration",
+      "RAG",
+      "LangChain",
+      "LangGraph",
+      "AI Agents",
+      "Message Queue",
+      "Load Balancer",
+      "Docker",
+      "Kubernetes",
+      "Microservices",
+    ],
   },
 ];
 
 export default function Skills() {
+ const [activeSkill, setActiveSkill] = useState<string | null>(null);
+
+ const activeGroup = skillGroups.find(
+  (group) => group.id === activeSkill
+);
+
   return (
- <section
-  id="skills"
-  className="
-    relative
-    min-h-screen
-    lg:h-screen
-    lg:max-h-screen
-    flex
-    flex-col
-    justify-center
-    overflow-hidden
-    bg-background
-    text-foreground
-    px-4
-    sm:px-6
-    lg:px-12
-    py-10
-    lg:py-6
-    transition-colors
-    duration-300
-  "
->
-  {/* Grid Background */}
-  <div
-    className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.08]"
-    style={{
-      backgroundImage: `
-        linear-gradient(currentColor 1px, transparent 1px),
-        linear-gradient(90deg, currentColor 1px, transparent 1px)
-      `,
-      backgroundSize: "60px 60px",
-    }}
-  />
-
-  {/* Subtle Ambient Background Glows */}
-  <div className="pointer-events-none absolute inset-0 overflow-hidden">
-    <div
+    <section
+      id="skills"
       className="
-        absolute -left-40 top-[-100px]
-        h-[400px] w-[400px]
-        rounded-full
-        bg-pink-500/10 dark:bg-pink-500/15
-        blur-[120px]
+        relative
+        min-h-screen
+        lg:h-screen
+        lg:max-h-screen
+        flex
+        flex-col
+        justify-center
+        overflow-hidden
+        bg-background
+        text-foreground
+        px-4
+        sm:px-6
+        lg:px-12
+        py-10
+        lg:py-6
       "
-    />
+    >
+      <div className="relative z-10 mx-auto w-full max-w-6xl">
 
-    <div
-      className="
-        absolute -right-40 bottom-[-100px]
-        h-[400px] w-[400px]
-        rounded-full
-        bg-cyan-500/10 dark:bg-cyan-500/15
-        blur-[130px]
-      "
-    />
-  </div>
-
-      <div className="relative z-10 mx-auto w-full max-w-6xl flex flex-col justify-center my-auto">
         {/* Header */}
-        <div className="mb-6 lg:mb-8">
+        <div className="mb-8 lg:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
             What I work with
           </p>
 
-          <h2 className="font-[var(--font-cormorant)] text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground">
-            Skills
-          </h2>
-        </div>
-
-        {/* Cards Grid with Staggered Framer Motion Animation */}
-        <div className="grid gap-6 md:grid-cols-3">
-          {skillsData.map((skill, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30, scale: 0.96 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.15,
-                ease: [0.21, 0.47, 0.32, 0.98],
-              }}
-              data-cursor-img={skill.image}
-              data-cursor-width="180px"
-              data-cursor-height="180px"
-              data-cursor-text={skill.category.toLowerCase()}
-              className={`group relative flex min-h-[320px] sm:min-h-[350px] lg:min-h-[370px] flex-col justify-end overflow-hidden rounded-2xl border border-border/80 dark:border-border/50 shadow-lg transition-all duration-500 ease-out hover:-translate-y-2 ${skill.borderColor} ${skill.shadowGlow}`}
+          <div className="flex items-end justify-between gap-4">
+            <h2
+              className="
+                font-[var(--font-cormorant)]
+                text-4xl
+                sm:text-5xl
+                lg:text-6xl
+                font-semibold
+                tracking-tight
+              "
             >
-              {/* Background Image */}
-              <Image
-                src={skill.image}
-                alt={skill.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
-              />
+              Skills
+            </h2>
 
-              {/* Gradient overlay for text contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/25 transition-opacity duration-500 group-hover:from-black/95 group-hover:via-black/70 group-hover:to-black/20" />
-
-              {/* Image-Specific Ambient Glow on Hover */}
-              <div
-                className={`pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full ${skill.glowBg} blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100`}
-              />
-
-              {/* Content */}
-              <div className="relative z-10 p-6 text-white transition-transform duration-300 ease-out group-hover:-translate-y-1">
-                {/* Category tag */}
-                <p className={`mb-1.5 text-xs font-bold uppercase tracking-[0.25em] ${skill.accentColor}`}>
-                  {skill.category}
-                </p>
-
-                <h3 className="mb-3 font-[var(--font-cormorant)] text-2xl sm:text-3xl font-medium leading-snug text-white">
-                  {skill.title}
-                </h3>
-
-                {/* Tech Pills */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {skill.skills.map((item, i) => (
-                    <span
-                      key={i}
-                      className={`rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[11px] sm:text-xs font-medium text-white/90 backdrop-blur-md transition-colors duration-300 ${skill.pillHoverBorder} ${skill.pillHoverBg}`}
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+            <span className="hidden sm:block text-xs uppercase tracking-[0.25em] text-muted-foreground">
+              2026
+            </span>
+          </div>
         </div>
 
-        {/* Footer info */}
-        <div className="mt-8 lg:mt-10 flex items-center justify-between border-t border-border/60 pt-6">
-          <div>
-            <p className="text-xs sm:text-sm text-muted-foreground">
-              Full Stack + GenAI
+        {/* Skill Buttons */}
+        <div className="grid gap-3 sm:grid-cols-3">
+          {skillGroups.map((group) => {
+            const isActive = activeSkill === group.id;
+
+            return (
+              <button
+                key={group.id}
+                type="button"
+              onClick={() =>
+  setActiveSkill((current) =>
+    current === group.id ? null : group.id
+  )
+}
+                aria-pressed={isActive}
+                className={`
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-2xl
+                  border
+                  p-5
+                  text-left
+                  transition-all
+                  duration-300
+                  ${
+                    isActive
+                      ? "border-[#FF7AF7]/70 bg-[#FF7AF7]/10"
+                      : "border-border/70 bg-card/40 hover:border-[#FF7AF7]/40 hover:bg-[#FF7AF7]/5"
+                  }
+                `}
+              >
+                <div className="flex items-start justify-between">
+                  <span
+                    className={`
+                      text-xs
+                      font-semibold
+                      tracking-[0.2em]
+                      ${
+                        isActive
+                          ? "text-[#FF7AF7]"
+                          : "text-muted-foreground"
+                      }
+                    `}
+                  >
+                    {group.number}
+                  </span>
+
+                  <span
+                    className={`
+                      text-lg
+                      transition-transform
+                      duration-300
+                      ${
+                        isActive
+                          ? "translate-x-0 text-[#FF7AF7]"
+                          : "-translate-x-1 text-muted-foreground"
+                      }
+                    `}
+                  >
+                    →
+                  </span>
+                </div>
+
+                <h3
+                  className={`
+                    mt-6
+                    font-[var(--font-cormorant)]
+                    text-2xl
+                    font-medium
+                    ${
+                      isActive
+                        ? "text-[#FF7AF7]"
+                        : "text-foreground"
+                    }
+                  `}
+                >
+                  {group.label}
+                </h3>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Details Panel */}
+        <div className="mt-5 min-h-[280px] rounded-2xl border border-border/70 bg-card/30 p-6 sm:p-8 lg:p-10">
+          {activeGroup && (
+  <AnimatePresence>
+    <motion.div
+      initial={{ opacity: 0, height: 0, y: -10 }}
+      animate={{ opacity: 1, height: "auto", y: 0 }}
+      exit={{ opacity: 0, height: 0, y: -10 }}
+      transition={{ duration: 0.3 }}
+      className="overflow-hidden"
+    >
+      <div className="mt-5 rounded-2xl border border-border/70 bg-card/30 p-5 sm:p-6">
+
+        <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+
+          {/* Heading */}
+          <div className="shrink-0">
+            <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#FF7AF7]">
+              {activeGroup.number} — {activeGroup.label}
             </p>
 
-            <p className="mt-0.5 text-base sm:text-lg font-medium text-foreground">
-              Sheryians Coding School
-            </p>
+            <h3 className="font-[var(--font-cormorant)] text-2xl sm:text-3xl font-semibold">
+              {activeGroup.title}
+            </h3>
           </div>
 
-          <span className="text-xs uppercase tracking-[0.25em] text-accent">
-            2026
+          {/* Skills */}
+          <div className="flex flex-wrap gap-2 md:max-w-2xl md:justify-end">
+            {activeGroup.skills.map((skill) => (
+              <span
+                key={skill}
+                className="
+                  rounded-full
+                  border
+                  border-border/70
+                  bg-background/60
+                  px-2.5
+                  py-1
+                  text-[11px]
+                  font-medium
+                  text-foreground/80
+                  transition-colors
+                  duration-300
+                  hover:border-[#FF7AF7]/60
+                  hover:text-[#FF7AF7]
+                "
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </motion.div>
+  </AnimatePresence>
+)}
+        </div>
+
+        {/* Bottom */}
+        <div className="mt-6 flex items-center justify-between border-t border-border/60 pt-5">
+          <p className="text-xs sm:text-sm text-muted-foreground">
+            Full Stack · GenAI · System Design
+          </p>
+
+          <span className="text-xs uppercase tracking-[0.25em] text-[#FF7AF7]">
+            Skills
           </span>
         </div>
       </div>
-
     </section>
   );
 }

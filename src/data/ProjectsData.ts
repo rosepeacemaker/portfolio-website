@@ -1,24 +1,33 @@
 export const projectsData = [
-    {
-        id: "fynix",
-        title: "FYNIX",
-        category: "Full Stack E-Commerce",
-        description:
-            "A full-stack fashion e-commerce application built with the MERN stack, featuring authentication, product management, variants, cart functionality, seller dashboard, real-time communication, image management, and payment integration.",
-        image: "/images/projects/fynix.jpg",
-        tech: [
-            "React",
-            "Node.js",
-            "Express.js",
-            "MongoDB",
-            "Socket.io",
-            "Google Auth",
-            "ImageKit",
-            "Payment Gateway",
-        ],
-        github: "",
-        live: "",
-    },
+ {
+  id: "fynix",
+  title: "Funky Fiber",
+  category: "Full Stack E-Commerce",
+  description:
+    "A full-stack fashion e-commerce application built with the MERN stack, featuring authentication, product management, variants, cart functionality, seller dashboard, real-time communication, image management, and payment integration.",
+
+  images: [
+    "/images/funkyfiber-1.png",
+    "/images/funky-img3.png",
+    "/images/funky-img10.png",
+    "/images/funky-img14.png",
+    "/images/funky-img-15.png",
+  ],
+
+  tech: [
+    "React",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Socket.io",
+    "Google Auth",
+    "ImageKit",
+    "Payment Gateway",
+  ],
+
+  github: "",
+  live: "",
+},
 
     {
         id: "insta-clone",
