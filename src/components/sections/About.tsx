@@ -2,13 +2,12 @@
 
 import { motion } from "framer-motion";
 
-
 export default function About() {
   const infoCards = [
     {
       label: "Education",
-      title: "Sheryians Coding School",
-      subtitle: "Full Stack Development",
+      title: "Full Stack Development",
+      subtitle: "Frontend · Backend · MERN",
     },
     {
       label: "Focus",
@@ -46,16 +45,11 @@ export default function About() {
       "
     >
       {/* Grid background */}
-      <div
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]"
-        style={{
-          backgroundImage: `
-            linear-gradient(currentColor 1px, transparent 1px),
-            linear-gradient(90deg, currentColor 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-        }}
-      />
+     <div className="absolute inset-0 z-0">
+    <div className="radar-pattern">
+      <div className="radar-center" />
+    </div>
+  </div>
 
       {/* Ambient Pink Glow */}
       <div className="pointer-events-none absolute right-[-5%] top-[15%] h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
@@ -94,9 +88,9 @@ export default function About() {
             </p>
 
             <p className="mt-4 lg:mt-6 text-xs sm:text-sm lg:text-base leading-relaxed text-muted-foreground">
-              I enjoy turning ideas into functional digital products —
-              combining thoughtful interfaces, scalable backend systems and
-              emerging AI technologies.
+              I enjoy turning ideas into functional digital products — combining
+              thoughtful interfaces, scalable backend systems and emerging AI
+              technologies.
             </p>
 
             <div className="mt-6 lg:mt-8 h-px w-32 bg-accent" />
@@ -116,17 +110,16 @@ export default function About() {
                   ease: [0.21, 0.47, 0.32, 0.98],
                 }}
                 className="
-                  rounded-2xl
-                  border border-border/80
-                  bg-card dark:bg-card/40
-                  p-4 sm:p-5
-                  backdrop-blur-md
-                  shadow-sm
-                  transition-all duration-300
-                  hover:-translate-y-1
-                  hover:border-accent/60
-                  hover:shadow-md
-                "
+                            rounded-2xl
+                            border border-border/70
+                            bg-card/60
+                            p-5
+                            backdrop-blur-md
+                            transition-all duration-300
+                            hover:-translate-y-1
+                            hover:border-accent/60
+                            hover:shadow-lg
+                          "
               >
                 <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-accent">
                   {card.label}
@@ -155,7 +148,6 @@ export default function About() {
           </span>
         </div>
       </div>
-
     </section>
   );
 }

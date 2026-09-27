@@ -57,49 +57,62 @@ const skillsData: SkillItem[] = [
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
+ <section
+  id="skills"
+  className="
+    relative
+    min-h-screen
+    lg:h-screen
+    lg:max-h-screen
+    flex
+    flex-col
+    justify-center
+    overflow-hidden
+    bg-background
+    text-foreground
+    px-4
+    sm:px-6
+    lg:px-12
+    py-10
+    lg:py-6
+    transition-colors
+    duration-300
+  "
+>
+  {/* Grid Background */}
+  <div
+    className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.08]"
+    style={{
+      backgroundImage: `
+        linear-gradient(currentColor 1px, transparent 1px),
+        linear-gradient(90deg, currentColor 1px, transparent 1px)
+      `,
+      backgroundSize: "60px 60px",
+    }}
+  />
+
+  {/* Subtle Ambient Background Glows */}
+  <div className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div
       className="
-        relative
-        min-h-screen
-        lg:h-screen
-        lg:max-h-screen
-        flex
-        flex-col
-        justify-center
-        overflow-hidden
-        bg-background
-        text-foreground
-        px-4
-        sm:px-6
-        lg:px-12
-        py-10
-        lg:py-6
-        transition-colors
-        duration-300
+        absolute -left-40 top-[-100px]
+        h-[400px] w-[400px]
+        rounded-full
+        bg-pink-500/10 dark:bg-pink-500/15
+        blur-[120px]
       "
-    >
-      {/* Subtle Ambient Background Glows */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div
-          className="
-            absolute -left-40 top-[-100px]
-            h-[400px] w-[400px]
-            rounded-full
-            bg-pink-500/10 dark:bg-pink-500/15
-            blur-[120px]
-          "
-        />
-        <div
-          className="
-            absolute -right-40 bottom-[-100px]
-            h-[400px] w-[400px]
-            rounded-full
-            bg-cyan-500/10 dark:bg-cyan-500/15
-            blur-[130px]
-          "
-        />
-      </div>
+    />
+
+    <div
+      className="
+        absolute -right-40 bottom-[-100px]
+        h-[400px] w-[400px]
+        rounded-full
+        bg-cyan-500/10 dark:bg-cyan-500/15
+        blur-[130px]
+      "
+    />
+  </div>
 
       <div className="relative z-10 mx-auto w-full max-w-6xl flex flex-col justify-center my-auto">
         {/* Header */}

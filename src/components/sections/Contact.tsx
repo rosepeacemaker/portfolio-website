@@ -163,7 +163,7 @@ export default function Contact() {
                   </p>
                 </div>
                 <p className="mt-1.5 text-xs sm:text-sm font-medium text-foreground truncate">
-                  linkedin.com/in/yourname
+                  linkedin.com/in/rozina-saleem
                 </p>
               </a>
 
@@ -195,7 +195,7 @@ export default function Contact() {
                   </p>
                 </div>
                 <p className="mt-1.5 text-xs sm:text-sm font-medium text-foreground truncate">
-                  github.com/yourusername
+                  github.com/rosepeacemaker
                 </p>
               </a>
 
@@ -227,7 +227,7 @@ export default function Contact() {
                   </p>
                 </div>
                 <p className="mt-1.5 text-xs sm:text-sm font-medium text-foreground truncate">
-                  x.com/yourusername
+                  x.com/devRose202
                 </p>
               </a>
             </div>
