@@ -45,7 +45,7 @@ export default function About() {
       "
     >
       {/* Grid background */}
-     <div className="absolute inset-0 z-0">
+     <div className="absolute inset-0 z-0 pointer-events-none">
     <div className="radar-pattern">
       <div className="radar-center" />
     </div>
@@ -54,7 +54,7 @@ export default function About() {
       {/* Ambient Pink Glow */}
       <div className="pointer-events-none absolute right-[-5%] top-[15%] h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
 
-      <div className="relative z-20 mx-auto w-full max-w-6xl flex flex-col justify-center my-auto">
+      <div className="relative z-30 mx-auto w-full max-w-6xl flex flex-col justify-center my-auto">
         {/* Header */}
         <div className="mb-6 lg:mb-8 flex items-end justify-between border-b border-border/60 pb-5">
           <div>
@@ -62,7 +62,7 @@ export default function About() {
               01 — About Me
             </p>
 
-            <h2 className="mt-3 max-w-4xl font-[var(--font-cormorant)] text-4xl sm:text-6xl lg:text-7xl font-medium leading-[0.95] text-foreground">
+            <h2 className="mt-3 max-w-4xl font-[var(--font-cormorant)] text-4xl sm:text-6xl lg:text-7xl font-medium leading-[0.95] text-gray-400 dark:text-white">
               Code meets{" "}
               <span className="text-muted-foreground/60">creativity.</span>
             </h2>
@@ -80,14 +80,14 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-6"
+            className="relative z-30 lg:col-span-6"
           >
-            <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed sm:leading-relaxed text-foreground">
+            <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed sm:leading-relaxed text-white dark:text-white">
               I’m Rozina Saleem, a Full Stack Developer focused on building
               modern web applications and AI-powered experiences.
             </p>
 
-            <p className="mt-4 lg:mt-6 text-xs sm:text-sm lg:text-base leading-relaxed text-muted-foreground">
+            <p className="mt-4 lg:mt-6 text-xs sm:text-sm lg:text-base leading-relaxed text-gray-400 dark:text-gray-300">
               I enjoy turning ideas into functional digital products — combining
               thoughtful interfaces, scalable backend systems and emerging AI
               technologies.

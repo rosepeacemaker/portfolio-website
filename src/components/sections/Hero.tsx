@@ -62,6 +62,7 @@ export default function Hero() {
             <a
               href="/resume.pdf"
               target="_blank"
+                rel="noopener noreferrer"
               className="pointer-events-auto rounded-full border border-foreground/30 px-6 py-3 text-sm font-medium transition hover:bg-foreground hover:text-background"
             >
               Resume

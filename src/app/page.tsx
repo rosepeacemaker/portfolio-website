@@ -8,7 +8,6 @@ import Contact from "../components/sections/Contact";
 export default function Home() {
   return (
     <main className="snap-y overflow-x-hidden snap-mandatory">
-
       <section className="snap-start">
         <Hero />
       </section>
@@ -22,17 +21,16 @@ export default function Home() {
       </section>
 
       <section className="snap-start">
-        <Journey />
+        <Projects />
       </section>
 
       <section className="snap-start">
-        <Projects />
+        <Journey />
       </section>
 
       <section className="snap-start">
         <Contact />
       </section>
-
     </main>
   );
 }

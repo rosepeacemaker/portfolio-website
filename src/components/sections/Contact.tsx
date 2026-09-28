@@ -109,7 +109,8 @@ export default function Contact() {
             <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Email */}
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:your-email@gmail.com"
+                target="_blank"
                 className="
                   group
                   rounded-xl
@@ -131,13 +132,13 @@ export default function Contact() {
                   </p>
                 </div>
                 <p className="mt-1.5 text-xs sm:text-sm font-medium text-foreground truncate">
-                  your.email@example.com
+                  roseroxina19@gmail.com
                 </p>
               </a>
 
               {/* LinkedIn */}
               <a
-                href="#"
+                href="https://linkedin.com/in/rozina-saleem"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -169,7 +170,7 @@ export default function Contact() {
 
               {/* GitHub */}
               <a
-                href="#"
+               href="https://github.com/rosepeacemaker"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -201,7 +202,7 @@ export default function Contact() {
 
               {/* X */}
               <a
-                href="#"
+                href="https://x.com/devRose202"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="

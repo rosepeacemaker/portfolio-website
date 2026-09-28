@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { projectsData } from "@/src/data/ProjectsData"
+import Image from "next/image"
 
 function ProjectImageSlider({
   images,
@@ -33,9 +34,11 @@ function ProjectImageSlider({
   }
 
   return (
-    <div className="relative h-60 overflow-hidden bg-muted">
+    <div className="relative h-72 overflow-hidden bg-muted">
       {/* Project Image */}
-      <img
+      <Image
+      width={400}
+      height={600}
         src={images[currentIndex]}
         alt={`${title} screenshot ${currentIndex + 1}`}
         className="h-full w-full object-cover transition-all duration-700"
@@ -123,18 +126,10 @@ export default function Projects() {
                   images={project.images}
                   title={project.title}
                 />
-
-                {/* Project Category */}
-                <div className="absolute bottom-4 left-4">
-                  <span className="rounded-full border border-white/20 bg-black/40 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-md">
-                    {project.category}
-                  </span>
-                </div>
-
               </div>
 
               {/* Content */}
-              <div className="p-8">
+              <div className="p-6">
 
                 <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
                   {project.category}

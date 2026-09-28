@@ -55,6 +55,33 @@ export const projectsData = [
         github: "",
         live: "",
     },
+    {
+  id: "perplexity-clone",
+  title: "Perplexity Clone",
+  category: "AI-Powered Full Stack",
+  description:
+    "An AI-powered search and conversational application inspired by Perplexity, built with the MERN stack and LangChain. It integrates multiple LLM providers, authentication, real-time communication, search-style responses, and a responsive React interface.",
+  images: [
+    "/images/per-ai2.jpg",
+    // add more screenshots here if you have them
+  ],
+  tech: [
+    "React",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "LangChain",
+    "Google Gemini",
+    "Mistral AI",
+    "Redux Toolkit",
+    "Socket.io",
+    "JWT",
+    "Axios",
+    "Tailwind CSS",
+  ],
+  github: "",
+  live: "",
+},
 
     {
         id: "insta-clone",
@@ -63,7 +90,7 @@ export const projectsData = [
         description:
             "A social media application inspired by Instagram, focused on building core social features, user interactions, authentication, and a modern responsive interface.",
         images:[
-            "/images/projects/instagram.jpg",
+            "/images/insta-clone1.webp",
         ] ,
         tech: [
             "React",
@@ -86,7 +113,7 @@ export const projectsData = [
         description:
             "A capstone project where AI agents can generate and build different experiences such as websites, games, and UI components. The project explores AI agents, sandbox environments, containerization, Docker Desktop, Kubernetes, and Skaffold for running and managing generated applications.",
         images:[
-"/images/projects/ai-sandbox.jpg",
+"/images/capstone-1.jpg",
         ] ,
         tech: [
             "AI Agents",
