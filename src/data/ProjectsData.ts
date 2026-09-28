@@ -1,17 +1,19 @@
 export const projectsData = [
  {
-  id: "fynix",
+  id: "funkyfiber",
   title: "Funky Fiber",
   category: "Full Stack E-Commerce",
   description:
     "A full-stack fashion e-commerce application built with the MERN stack, featuring authentication, product management, variants, cart functionality, seller dashboard, real-time communication, image management, and payment integration.",
 
   images: [
-    "/images/funkyfiber-1.png",
-    "/images/funky-img3.png",
-    "/images/funky-img10.png",
-    "/images/funky-img14.png",
-    "/images/funky-img-15.png",
+    "/images/funkyfiber-1.webp",
+    "/images/funky-img-4.webp",
+    "/images/funky-img2.webp",
+    "/images/funky-img14.webp",
+    "/images/funky-img-13.webp",
+    "/images/funky-img-15.webp",
+    
   ],
 
   tech: [
@@ -28,6 +30,31 @@ export const projectsData = [
   github: "",
   live: "",
 },
+ {
+        id: "mac-os",
+        title: "Mac OS",
+        category: "Frontend / Interactive UI",
+        description:
+            "An interactive Mac OS inspired web experience built with React and Vite, featuring a desktop-style interface and interactive applications.",
+        images: [
+    "/images/macos-1.png",
+    "/images/macos-2.webp",
+    "/images/macos-3.webp",
+    "/images/macos-4.webp",
+   
+  ],
+        tech: [
+            "React",
+            "Vite",
+            "JavaScript",
+            "framer motion",
+            "Gsap",
+            "SCSS",
+            "Interactive UI",
+        ],
+        github: "",
+        live: "",
+    },
 
     {
         id: "insta-clone",
@@ -35,7 +62,9 @@ export const projectsData = [
         category: "Full Stack Social Media",
         description:
             "A social media application inspired by Instagram, focused on building core social features, user interactions, authentication, and a modern responsive interface.",
-        image: "/images/projects/instagram.jpg",
+        images:[
+            "/images/projects/instagram.jpg",
+        ] ,
         tech: [
             "React",
             "Node.js",
@@ -48,23 +77,7 @@ export const projectsData = [
         live: "",
     },
 
-    {
-        id: "mac-os",
-        title: "Mac OS",
-        category: "Frontend / Interactive UI",
-        description:
-            "An interactive Mac OS inspired web experience built with React and Vite, featuring a desktop-style interface and interactive applications.",
-        image: "/images/projects/macos.jpg",
-        tech: [
-            "React",
-            "Vite",
-            "JavaScript",
-            "CSS",
-            "Interactive UI",
-        ],
-        github: "",
-        live: "",
-    },
+   
 
     {
         id: "ai-agent-sandbox",
@@ -72,7 +85,9 @@ export const projectsData = [
         category: "AI / Full Stack / DevOps",
         description:
             "A capstone project where AI agents can generate and build different experiences such as websites, games, and UI components. The project explores AI agents, sandbox environments, containerization, Docker Desktop, Kubernetes, and Skaffold for running and managing generated applications.",
-        image: "/images/projects/ai-sandbox.jpg",
+        images:[
+"/images/projects/ai-sandbox.jpg",
+        ] ,
         tech: [
             "AI Agents",
             "Sandbox",

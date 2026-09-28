@@ -1,11 +1,95 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { projectsData } from "@/src/data/ProjectsData"
 
+function ProjectImageSlider({
+  images,
+  title,
+}: {
+  images: string[]
+  title: string
+}) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    if (images.length <= 1) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [images.length])
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }
+
+  const previousImage = () => {
+    setCurrentIndex(
+      (prev) => (prev - 1 + images.length) % images.length
+    )
+  }
+
+  return (
+    <div className="relative h-60 overflow-hidden bg-muted">
+      {/* Project Image */}
+      <img
+        src={images[currentIndex]}
+        alt={`${title} screenshot ${currentIndex + 1}`}
+        className="h-full w-full object-cover transition-all duration-700"
+      />
+
+      {/* Dark Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+      {/* Arrows */}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={previousImage}
+            aria-label="Previous image"
+            className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 px-3 py-2 text-white backdrop-blur-md transition hover:bg-black/70"
+          >
+            ←
+          </button>
+
+          <button
+            onClick={nextImage}
+            aria-label="Next image"
+            className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 px-3 py-2 text-white backdrop-blur-md transition hover:bg-black/70"
+          >
+            →
+          </button>
+
+          {/* Dots */}
+          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Go to image ${index + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "w-5 bg-white"
+                    : "w-1.5 bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative min-h-screen overflow-hidden bg-background text-foreground px-6 py-24">
+    <section
+      id="projects"
+      className="relative min-h-screen overflow-hidden bg-background px-6 py-24 text-foreground"
+    >
       <div className="mx-auto max-w-7xl">
 
         {/* Heading */}
@@ -29,31 +113,29 @@ export default function Projects() {
           {projectsData.map((project) => (
             <div
               key={project.id}
-              className="group overflow-hidden rounded-3xl border border-border/70 bg-card/70 dark:bg-card/40 backdrop-blur-md shadow-sm transition-all duration-300 hover:border-accent/60 hover:-translate-y-1"
+              className="group overflow-hidden rounded-3xl border border-border/70 bg-card/70 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 dark:bg-card/40"
             >
 
-              {/* Project Image */}
-              <div className="relative h-60 overflow-hidden bg-muted">
+              {/* Project Image + Category */}
+              <div className="relative">
 
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                <ProjectImageSlider
+                  images={project.images}
+                  title={project.title}
                 />
 
-                {/* Dark gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-                {/* Project category */}
+                {/* Project Category */}
                 <div className="absolute bottom-4 left-4">
                   <span className="rounded-full border border-white/20 bg-black/40 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-md">
                     {project.category}
                   </span>
                 </div>
+
               </div>
 
               {/* Content */}
               <div className="p-8">
+
                 <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
                   {project.category}
                 </p>
@@ -77,13 +159,13 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+
               </div>
             </div>
           ))}
         </div>
 
       </div>
-
     </section>
   )
 }
