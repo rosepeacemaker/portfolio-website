@@ -17,9 +17,11 @@ export default function Hero() {
       </div>
       {/* Big text behind the image */}
 
-      <div className="absolute inset-0 z-0 flex items-center justify-center translate-x-[8%] translate-y-[6%]">
-        <h1 className="hero-name-breathe font-[var(--font-cormorant)] text-[7vw] font-medium leading-none tracking-tight blur-[2px]">
-          Full Stack Developer
+      <div className="absolute inset-0 z-0 flex items-center justify-center translate-x-[3%] translate-y-[-7%]">
+        <h1 className="hero-name-breathe font-[var(--font-cormorant)] text-[8vw] font-medium leading-none tracking-tight blur-[2px]">
+          Full Stack
+          <br/>
+          Developer 
         </h1>
       </div>
 
