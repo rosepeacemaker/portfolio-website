@@ -269,7 +269,7 @@ export default function Contact() {
                 "
               >
                 <Image
-                  src="/images/github.png"
+                   src="/images/profile/git-img.webp"
                   alt="Rozina's GitHub profile and contribution activity"
                   width={1200}
                   height={600}
